@@ -1,5 +1,7 @@
 package wagon;
 
+import java.util.Objects;
+
 public class CargoWagon extends Wagon {
     private int cargoMassCapacity = 0;
     private int cargoVolumeCapacity = 0;
@@ -61,5 +63,25 @@ public class CargoWagon extends Wagon {
 
     public boolean isOverloadedByVolume() {
         return (availableCargoVolume() < 0);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof CargoWagon wagon)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        return cargoMassCapacity == wagon.cargoMassCapacity && cargoVolumeCapacity == wagon.cargoVolumeCapacity
+                && cargoMass == wagon.cargoMass && cargoVolume == wagon.cargoVolume;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), cargoMassCapacity, cargoVolumeCapacity, cargoMass, cargoVolume);
     }
 }

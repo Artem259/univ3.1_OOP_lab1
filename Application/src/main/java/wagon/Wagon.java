@@ -1,5 +1,7 @@
 package wagon;
 
+import java.util.Objects;
+
 public abstract class Wagon {
     private int mass = 0;
     private int length = 0;
@@ -35,5 +37,21 @@ public abstract class Wagon {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Wagon wagon)) {
+            return false;
+        }
+        return mass == wagon.mass && length == wagon.length && Objects.equals(model, wagon.model);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mass, length, model);
     }
 }
