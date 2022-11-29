@@ -14,12 +14,44 @@ public class PassengerTrain {
 
     public PassengerTrain() { }
 
-    public List<Locomotive> getLocomotives() {
-        return locomotives;
+    public void addLocomotive(Locomotive locomotive) {
+        locomotives.add(locomotive);
     }
 
-    public List<PassengerWagon> getWagons() {
-        return wagons;
+    public void addWagon(PassengerWagon wagon) {
+        wagons.add(wagon);
+    }
+
+    public Locomotive getLocomotive(int index) {
+        return locomotives.get(index);
+    }
+
+    public PassengerWagon getWagon(int index) {
+        return wagons.get(index);
+    }
+
+    public void deleteLocomotive(int index) {
+        locomotives.remove(index);
+    }
+
+    public void deleteWagon(int index) {
+        wagons.remove(index);
+    }
+
+    public List<Locomotive> getLocomotivesCopy() {
+        return new ArrayList<>(locomotives);
+    }
+
+    public List<PassengerWagon> getWagonsCopy() {
+        return new ArrayList<>(wagons);
+    }
+
+    public int locomotivesSize() {
+        return locomotives.size();
+    }
+
+    public int wagonsSize() {
+        return wagons.size();
     }
 
     public int totalPassengers() {
@@ -31,12 +63,12 @@ public class PassengerTrain {
     }
 
     /** @return a copy of the wagons list, sorted in ascending order */
-    public List<PassengerWagon> sortedWaggonsListByComfortLevel() {
+    public List<PassengerWagon> sortedWagonsListByComfortLevel() {
         return wagons.stream().sorted(Comparator.comparing(PassengerWagon::getComfortLevel))
                 .collect(Collectors.toList());
     }
 
-    public List<PassengerWagon> filteredWaggonsListByPassengers(int from, int to) {
+    public List<PassengerWagon> filteredWagonsListByPassengers(int from, int to) {
         if (to < from) {
             throw new IllegalArgumentException("to < from");
         }
