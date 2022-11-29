@@ -1,71 +1,75 @@
 package wagon;
 
 public class PassengerWagon extends Wagon {
-    private Integer passengersCapacity = 0;
-    private Integer baggageCapacity = 0;
-    private Integer passengers = 0;
-    private Integer baggage = 0;
-    private Integer comfortLevel = 0;
+    private int passengersCapacity = 0;
+    private int baggageCapacity = 0;
+    private int passengers = 0;
+    private int baggage = 0;
+    private int comfortLevel = 0;
 
-    public PassengerWagon(Integer passengersCapacity, Integer baggageCapacity, Integer comfortLevel) {
+    public PassengerWagon(int passengersCapacity, int baggageCapacity, int comfortLevel) {
         this.passengersCapacity = passengersCapacity;
         this.baggageCapacity = baggageCapacity;
         this.comfortLevel = comfortLevel;
     }
 
-    public PassengerWagon(Integer mass, Integer length, String model) {
+    public PassengerWagon(int mass, int length, String model) {
         super(mass, length, model);
     }
 
-    public Integer getPassengersCapacity() {
+    public int getPassengersCapacity() {
         return passengersCapacity;
     }
 
-    public void setPassengersCapacity(Integer passengersCapacity) throws Exception {
-        if (passengers > passengersCapacity) {
-            throw new Exception();
-        }
+    public void setPassengersCapacity(int passengersCapacity) {
         this.passengersCapacity = passengersCapacity;
     }
 
-    public Integer getBaggageCapacity() {
+    public int getBaggageCapacity() {
         return baggageCapacity;
     }
 
-    public void setBaggageCapacity(Integer baggageCapacity) throws Exception {
-        if (baggage > baggageCapacity) {
-            throw new Exception();
-        }
+    public void setBaggageCapacity(int baggageCapacity) {
         this.baggageCapacity = baggageCapacity;
     }
 
-    public Integer getPassengers() {
+    public int getPassengers() {
         return passengers;
     }
 
-    public void setPassengers(Integer passengers) throws Exception {
-        if (passengers > passengersCapacity) {
-            throw new Exception();
-        }
+    public void setPassengers(int passengers) {
         this.passengers = passengers;
     }
 
-    public Integer getBaggage() {
+    public int getBaggage() {
         return baggage;
     }
 
-    public void setBaggage(Integer baggage) throws Exception {
-        if (baggage > baggageCapacity) {
-            throw new Exception();
-        }
+    public void setBaggage(int baggage) {
         this.baggage = baggage;
     }
 
-    public Integer getComfortLevel() {
+    public int getComfortLevel() {
         return comfortLevel;
     }
 
-    public void setComfortLevel(Integer comfortLevel) {
+    public void setComfortLevel(int comfortLevel) {
         this.comfortLevel = comfortLevel;
+    }
+
+    public int availablePassengers() {
+        return (passengersCapacity - passengers);
+    }
+
+    public int availableBaggage() {
+        return (baggageCapacity - baggage);
+    }
+
+    public boolean isOverloadedByPassengers() {
+        return (availablePassengers() < 0);
+    }
+
+    public boolean isOverloadedByBaggage() {
+        return (availableBaggage() < 0);
     }
 }

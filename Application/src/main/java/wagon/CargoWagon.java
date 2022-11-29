@@ -1,61 +1,65 @@
 package wagon;
 
 public class CargoWagon extends Wagon {
-    private Integer cargoMassCapacity = 0;
-    private Integer cargoVolumeCapacity = 0;
-    private Integer cargoMass = 0;
-    private Integer cargoVolume = 0;
+    private int cargoMassCapacity = 0;
+    private int cargoVolumeCapacity = 0;
+    private int cargoMass = 0;
+    private int cargoVolume = 0;
 
-    public CargoWagon(Integer cargoMassCapacity, Integer cargoVolumeCapacity) {
+    public CargoWagon(int cargoMassCapacity, int cargoVolumeCapacity) {
         this.cargoMassCapacity = cargoMassCapacity;
         this.cargoVolumeCapacity = cargoVolumeCapacity;
     }
 
-    public CargoWagon(Integer mass, Integer length, String model) {
+    public CargoWagon(int mass, int length, String model) {
         super(mass, length, model);
     }
 
-    public Integer getCargoMassCapacity() {
+    public int getCargoMassCapacity() {
         return cargoMassCapacity;
     }
 
-    public void setCargoMassCapacity(Integer cargoMassCapacity) throws Exception {
-        if (cargoMass > cargoMassCapacity) {
-            throw new Exception();
-        }
+    public void setCargoMassCapacity(int cargoMassCapacity) {
         this.cargoMassCapacity = cargoMassCapacity;
     }
 
-    public Integer getCargoVolumeCapacity() {
+    public int getCargoVolumeCapacity() {
         return cargoVolumeCapacity;
     }
 
-    public void setCargoVolumeCapacity(Integer cargoVolumeCapacity) throws Exception {
-        if (cargoVolume > cargoVolumeCapacity) {
-            throw new Exception();
-        }
+    public void setCargoVolumeCapacity(int cargoVolumeCapacity) {
         this.cargoVolumeCapacity = cargoVolumeCapacity;
     }
 
-    public Integer getCargoMass() {
+    public int getCargoMass() {
         return cargoMass;
     }
 
-    public void setCargoMass(Integer cargoMass) throws Exception {
-        if (cargoMass > cargoMassCapacity) {
-            throw new Exception();
-        }
+    public void setCargoMass(int cargoMass) {
         this.cargoMass = cargoMass;
     }
 
-    public Integer getCargoVolume() {
+    public int getCargoVolume() {
         return cargoVolume;
     }
 
-    public void setCargoVolume(Integer cargoVolume) throws Exception {
-        if (cargoVolume > cargoVolumeCapacity) {
-            throw new Exception();
-        }
+    public void setCargoVolume(int cargoVolume) {
         this.cargoVolume = cargoVolume;
+    }
+
+    public int availableCargoMass() {
+        return (cargoMassCapacity - cargoMass);
+    }
+
+    public int availableCargoVolume() {
+        return (cargoVolumeCapacity - cargoVolume);
+    }
+
+    public boolean isOverloadedByMass() {
+        return (availableCargoMass() < 0);
+    }
+
+    public boolean isOverloadedByVolume() {
+        return (availableCargoVolume() < 0);
     }
 }

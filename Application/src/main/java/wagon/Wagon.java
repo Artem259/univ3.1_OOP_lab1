@@ -1,35 +1,31 @@
 package wagon;
 
 public abstract class Wagon {
-    private Integer mass;
-    private Integer length;
-    private String model;
+    private int mass = 0;
+    private int length = 0;
+    private String model = "";
 
-    public Wagon(Integer mass, Integer length, String model) {
+    public Wagon(int mass, int length, String model) {
         this.mass = mass;
         this.length = length;
         this.model = model;
     }
 
-    public Wagon() {
-        this.mass = null;
-        this.length = null;
-        this.model = null;
-    }
+    public Wagon() { }
 
-    public Integer getMass() {
+    public int getMass() {
         return mass;
     }
 
-    public void setMass(Integer mass) {
+    public void setMass(int mass) {
         this.mass = mass;
     }
 
-    public Integer getLength() {
+    public int getLength() {
         return length;
     }
 
-    public void setLength(Integer length) {
+    public void setLength(int length) {
         this.length = length;
     }
 

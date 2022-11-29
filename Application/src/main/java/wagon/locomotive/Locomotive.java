@@ -3,21 +3,21 @@ package wagon.locomotive;
 import wagon.Wagon;
 
 public class Locomotive extends Wagon {
-    private Integer maxCarryingMass = 0;
+    private int maxCarryingMass = 0;
 
-    public Locomotive(Integer maxCarryingMass) {
+    public Locomotive(int maxCarryingMass) {
         this.maxCarryingMass = maxCarryingMass;
     }
 
-    public Locomotive(Integer mass, Integer length, String model) {
+    public Locomotive(int mass, int length, String model) {
         super(mass, length, model);
     }
 
-    public Integer getMaxCarryingMass() {
+    public int getMaxCarryingMass() {
         return maxCarryingMass;
     }
 
-    public void setMaxCarryingMass(Integer maxCarryingMass) {
+    public void setMaxCarryingMass(int maxCarryingMass) {
         this.maxCarryingMass = maxCarryingMass;
     }
 }
