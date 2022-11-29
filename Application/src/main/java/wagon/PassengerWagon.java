@@ -21,7 +21,10 @@ public class PassengerWagon extends Wagon {
         return passengersCapacity;
     }
 
-    public void setPassengersCapacity(Integer passengersCapacity) {
+    public void setPassengersCapacity(Integer passengersCapacity) throws Exception {
+        if (passengers > passengersCapacity) {
+            throw new Exception();
+        }
         this.passengersCapacity = passengersCapacity;
     }
 
@@ -29,7 +32,10 @@ public class PassengerWagon extends Wagon {
         return baggageCapacity;
     }
 
-    public void setBaggageCapacity(Integer baggageCapacity) {
+    public void setBaggageCapacity(Integer baggageCapacity) throws Exception {
+        if (baggage > baggageCapacity) {
+            throw new Exception();
+        }
         this.baggageCapacity = baggageCapacity;
     }
 
@@ -37,9 +43,9 @@ public class PassengerWagon extends Wagon {
         return passengers;
     }
 
-    public void setPassengers(Integer passengers) {
+    public void setPassengers(Integer passengers) throws Exception {
         if (passengers > passengersCapacity) {
-            throw new IllegalArgumentException();
+            throw new Exception();
         }
         this.passengers = passengers;
     }
@@ -48,9 +54,9 @@ public class PassengerWagon extends Wagon {
         return baggage;
     }
 
-    public void setBaggage(Integer baggage) {
+    public void setBaggage(Integer baggage) throws Exception {
         if (baggage > baggageCapacity) {
-            throw new IllegalArgumentException();
+            throw new Exception();
         }
         this.baggage = baggage;
     }

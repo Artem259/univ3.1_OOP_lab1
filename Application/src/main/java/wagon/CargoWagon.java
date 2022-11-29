@@ -19,7 +19,10 @@ public class CargoWagon extends Wagon {
         return cargoMassCapacity;
     }
 
-    public void setCargoMassCapacity(Integer cargoMassCapacity) {
+    public void setCargoMassCapacity(Integer cargoMassCapacity) throws Exception {
+        if (cargoMass > cargoMassCapacity) {
+            throw new Exception();
+        }
         this.cargoMassCapacity = cargoMassCapacity;
     }
 
@@ -27,7 +30,10 @@ public class CargoWagon extends Wagon {
         return cargoVolumeCapacity;
     }
 
-    public void setCargoVolumeCapacity(Integer cargoVolumeCapacity) {
+    public void setCargoVolumeCapacity(Integer cargoVolumeCapacity) throws Exception {
+        if (cargoVolume > cargoVolumeCapacity) {
+            throw new Exception();
+        }
         this.cargoVolumeCapacity = cargoVolumeCapacity;
     }
 
@@ -35,9 +41,9 @@ public class CargoWagon extends Wagon {
         return cargoMass;
     }
 
-    public void setCargoMass(Integer cargoMass) {
+    public void setCargoMass(Integer cargoMass) throws Exception {
         if (cargoMass > cargoMassCapacity) {
-            throw new IllegalArgumentException();
+            throw new Exception();
         }
         this.cargoMass = cargoMass;
     }
@@ -46,9 +52,9 @@ public class CargoWagon extends Wagon {
         return cargoVolume;
     }
 
-    public void setCargoVolume(Integer cargoVolume) {
+    public void setCargoVolume(Integer cargoVolume) throws Exception {
         if (cargoVolume > cargoVolumeCapacity) {
-            throw new IllegalArgumentException();
+            throw new Exception();
         }
         this.cargoVolume = cargoVolume;
     }
