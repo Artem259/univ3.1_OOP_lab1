@@ -1,17 +1,15 @@
 package wagon;
 
 public class PassengerWagon extends Wagon {
-    private Integer passengersCapacity;
-    private Integer baggageCapacity;
-    private Integer passengers;
-    private Integer baggage;
-    private Integer comfortLevel;
+    private Integer passengersCapacity = 0;
+    private Integer baggageCapacity = 0;
+    private Integer passengers = 0;
+    private Integer baggage = 0;
+    private Integer comfortLevel = 0;
 
     public PassengerWagon(Integer passengersCapacity, Integer baggageCapacity, Integer comfortLevel) {
         this.passengersCapacity = passengersCapacity;
         this.baggageCapacity = baggageCapacity;
-        this.passengers = 0;
-        this.baggage = 0;
         this.comfortLevel = comfortLevel;
     }
 

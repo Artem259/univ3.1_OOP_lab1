@@ -1,16 +1,14 @@
 package wagon;
 
 public class CargoWagon extends Wagon {
-    private Integer cargoMassCapacity;
-    private Integer cargoVolumeCapacity;
-    private Integer cargoMass;
-    private Integer cargoVolume;
+    private Integer cargoMassCapacity = 0;
+    private Integer cargoVolumeCapacity = 0;
+    private Integer cargoMass = 0;
+    private Integer cargoVolume = 0;
 
     public CargoWagon(Integer cargoMassCapacity, Integer cargoVolumeCapacity) {
         this.cargoMassCapacity = cargoMassCapacity;
         this.cargoVolumeCapacity = cargoVolumeCapacity;
-        this.cargoMass = 0;
-        this.cargoVolume = 0;
     }
 
     public CargoWagon(Integer mass, Integer length, String model) {
